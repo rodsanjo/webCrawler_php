@@ -49,12 +49,12 @@
                 var cookies = JSON.parse(jsontext);
                 
                 alert('cookies: ' + cookies);
+                alert('cookies1: ' + cookies[1].name);
                 alert('number of cookies: ' + cookies.length);
                 
-                for(var i=0; i<cookieFile.length; i++){
-                    var cookieFile = objeto_destino;
-                    alert(cookieFile[i]);
-                    setCookie(cookieFile[i].name, cookieFile[i].value, cookieFile[i].expirationDate, cookieFile[i].path, cookieFile[i].domain, cookieFile[i].secure, cookieFile[i].hostOnly, cookieFile[i].httpOnly, cookieFile[i].session, cookieFile[i].storeId, cookieFile[i].id);
+                for(var i=0; i<cookies.length; i++){
+                    alert(cookies[i]);
+                    setCookie(cookies[i].name, cookies[i].value, cookies[i].expirationDate, cookies[i].path, cookies[i].domain, cookies[i].secure, cookies[i].hostOnly, cookies[i].httpOnly, cookies[i].session, cookies[i].storeId, cookies[i].id);
                 }
             }
                         
