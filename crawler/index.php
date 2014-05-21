@@ -44,7 +44,6 @@ define("URL_HOME_ROOT", dirname(URL_ROOT)."/home/");
 
 //Titulo de la aplicación
 define('TITULO', 'Web Crawler');
-require PATH_ROOT.'recursos/librerias/simple_html_dom.php';
 
 // Preparar el autocargador de clases.
 // Este y el contenido en \core\Autoloader() serán los únicos require/include de toda la aplicación

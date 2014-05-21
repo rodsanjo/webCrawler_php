@@ -1,23 +1,21 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+namespace controladores;
 
 /**
  * Description of crawler
  *
  * @author Jorge
  */
-class crawler {
+class inicio extends \core\Controlador{
         
     //public static $url = 'https://www.linkedin.com/vsearch/f?type=all&keywords=Symfony2+Gliwice';
     //public static $url = 'https://www.linkedin.com/vsearch/f?type=all&keywords=php+jorge';
     public static $url = 'http://as.com';
     //public static $selector = 'div#results-container > ol.search-results > li a';
     public static $selector = 'p';
-    //put your code here
+    public static $cookieFile = 'modelos/cookie.txt';
+
+
     public function index(array $datos){
         
         $datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos, true);
@@ -25,15 +23,16 @@ class crawler {
         \core\HTTP_Respuesta::enviar($http_body);
     }
     
-    public function result_search($url, $search){
+    public function result_search($url = null, $search = null){
         
         //$url = 'https://www.linkedin.com/vsearch/f?type=all&keywords=Symfony2+Gliwice';
         //$url = 'https://www.linkedin.com/vsearch/f?type=all&keywords=php+jorge';
         $url = 'http://as.com';
         
-        $html = file_get_html($url);
+        require_once(PATH_ROOT.'recursos/librerias/simple_html_dom.php');
         
-        curl_setopt($s,CURLOPT_COOKIEFILE,$this->_cookieFileLocation);
+        $html = file_get_html($url);
+        //curl_setopt($s,CURLOPT_COOKIEFILE, PATH_APP.self::$cookieFile);
 
         //$selector = 'div#results-container > ol.search-results > li a';    
         $selector = 'p';
@@ -49,6 +48,6 @@ class crawler {
     }
 
 
-}
+}   // Fin de la clase
 
 ?>
