@@ -62,7 +62,6 @@
             
             curl_exec($ch);
             
-            $url = 'http://as.com';
             $selector = 'div#results-container > ol.search-results > li a';    
             $selector = 'p';
             $html = file_get_html($url);            
